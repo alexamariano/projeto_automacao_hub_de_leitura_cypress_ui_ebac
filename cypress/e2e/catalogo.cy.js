@@ -35,4 +35,15 @@ describe('Funcionalidade: Catálogo de livros', () => {
         cy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!')
     });
 
+    //Proposta de implementação de novos de teste
+
+    it('Deve adicionar dois livros diferentes e validar o contador do cabeçalho', () => {
+        // Adiciona o primeiro livro
+        cy.get('.btn-primary').first().click()
+        // Adiciona o terceiro livro
+        cy.get('.btn-primary').eq(2).click()
+        // Valida se o ícone da cesta no topo da página atualizou para o número 2
+        cy.get('#cart-count').should('contain', '2') 
+    });
+
 });
